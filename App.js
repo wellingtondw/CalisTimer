@@ -1,25 +1,13 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
+import Home from './src/screens/Home'
+import EMOM from './src/screens/EMOM'
 
+const AppNavigator = createStackNavigator({
+  Home,
+  EMOM
+}, { initialRouteName: 'Home'})
 
-const App = () => {
-  return (
-    <View>
-      <Text style={styles.TextStyle}>Hello World</Text>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  TextStyle: {
-    fontFamily: 'Ubuntu-Regular',
-    fontSize: 32,
-  },
-});
-
-export default App;
+export default createAppContainer(AppNavigator)
